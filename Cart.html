@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="shortcut icon" href="PommeImgs/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="Cartstyle.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho</title>
+</head>
+<body>
+    <section>
+        <h1>Carrinho de Compras <input type="button" value="Voltar para Loja"></h1>
+        <div id="cart-item"></div>
+
+        <div class="cart-summary">
+            <p>Subtotal: <span id="Subtotal"></span></p>
+            <p>Frete: <span id="frete">R$25,99</span></p>
+            <p>Total: <span id="totalCompra">R$00,00</span></p>
+            <input type="button" value="Finalizar Compra">
+        </div>
+    </section>
+
+
+
+    <script>
+
+    let cartItem = [
+        { id: 1, 
+          nome: 'Camisa Pomme', 
+          preco: 199.99,
+          qte: 1,
+          img: 'PommeImgs/t-shitModel1.webp'
+        }
+        ,{ id: 2, 
+          nome: 'Camisa Pomme', 
+          preco: 199.99,
+          qte: 1,
+          img: 'PommeImgs/t-shitModel1.webp'
+        }] 
+   
+      function renderCart() {
+      
+      const cartItemsDiv = document.getElementById('cart-item')
+      cartItemsDiv.innerHTML = ''
+      subtotal = 0
+      cartItem.forEach(item => {
+      subtotal += item.preco * item.qte
+        
+        const itemDiv = document.createElement('div')
+        itemDiv.classList.add('cart-item') 
+        itemDiv.innerHTML = ` 
+            <img src="PommeImgs/t-shitModel1.webp">
+            <div>
+                <h2>${item.nome}</h2>
+                <p>${item.preco.toFixed(2)}</p>
+                <p id="qteP">
+                    <button onclick ="atualizarQte(${item.id}, -1)" id="remove">-</button>  
+                    <span id=precoPeca>${item.qte}</span>
+                    <button onclick ="atualizarQte(${item.id}, 1)"id="add">+</button> 
+                </p>
+            </div>
+            <p><button onclick ="removeItem(${item.id})" " id="removeProduto">Remover</button></p>`
+                cartItemsDiv.appendChild(itemDiv) 
+       }) 
+      document.getElementById('Subtotal').textContent = `R$${subtotal.toFixed(2)}`
+
+      const frete = 24.99
+      const total = frete + subtotal
+
+      document.getElementById('Subtotal').textContent = `R$${subtotal.toFixed(2)}`
+      document.getElementById('frete').textContent = `R$${frete.toFixed(2)}`
+      document.getElementById('totalCompra').textContent = `R$${total.toFixed(2)}`
+    }
+      
+
+     function atualizarQte(id, change) {
+        cartItem = cartItem.map(item => {
+            if (item.id === id) {
+                item.qte += change
+            } if (item.qte < 1) {
+                item.qte = 1
+              } item.qteInicial = item.qte
+            return item      } )
+       
+              renderCart()
+     }
+        function removeItem (id) {
+            cartItem = cartItem.filter(item => item.id !== id)
+            renderCart()
+        }
+       
+        renderCart()
+    </script>   
+</body>
+</html>

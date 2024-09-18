@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="shortcut icon" href="PommeImgs/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do produto</title>
+</head>
+<body>
+    <header>
+        <nav id="nav">
+         <button class="hammbMenu">
+           <span id="hamburger"></span>
+         </button>
+             <div id="mainHeader">
+              
+                 <ul class="menu"id="menu1">
+                     <li><a href="\">SHOP</a></li>
+                     <li><a href="http://127.0.0.1:5500/lookbook.html">BOOK</a></li>
+                 </ul>
+               
+                 <h1><img src="PommeImgs/LogoSmall.png" alt="PommeLogo"></h1>
+       
+                   <ul class="menu" id="menu2">
+                         <li><a href="http://127.0.0.1:5500/Cart.html">CART</a></li>
+                         <li><a href="http://127.0.0.1:5500/contato.html">CONTATO</a></li>
+                   </ul>
+               
+                   <ul id="mobMenu">
+                     <li><a href="http://127.0.0.1:5500/">SHOP</a></li>
+                     <li><a href="http://127.0.0.1:5500/lookbook.html">BOOK</a></li>
+                     <li><a href="http://127.0.0.1:5500/Cart.html">CART</a></li>
+                     <li><a href="http://127.0.0.1:5500/contato.html">CONTATO</a></li>
+               </ul>
+             </div>
+        </nav>
+       </header>
+       <main id="invidual_product">
+
+        <button id="back-button" onclick="prevSlide()"><img src="PommeImgs/arrow.png" alt=""></button>
+
+
+          <div class="slider">
+            
+              <img src="PommeImgs/pommeDelleons.jpg" alt="Exemplo1" class="sliderImg">
+              <img src="PommeImgs/camisaModeloCostas.webp" alt="Exemplo2" class="sliderImg">
+              <img src="PommeImgs/camisaModelZoomIn.webp" alt="Exemplo3" class="sliderImg">
+              <img src="PommeImgs/camisaModelZoomIn2.webp" alt="Exemplo4" class="sliderImg">
+
+            
+          
+          </div>
+          <button id="next-button" onclick="nextSlide()"><img src="PommeImgs/arrow.png" alt=""></button>
+          <div class="desc-deta">
+            <h1 class="nomeProduto">Nome do Produto</h1>
+            <p class="descProduto"><strong>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore accusamus, illum cumque placeat velit delectus, modi numquam neque minus sequi, est consequatur dolorum facilis! Eligendi cum aliquam mollitia error velit?</strong></p>
+            <p class="preco"><strong>R$ 399,99</strong></p>
+          
+            <select name="product Size" id="product-size">
+                <option value="P">P</option>
+                <option value="M">M</option>
+                <option value="G">G</option>
+              </select>
+
+          
+
+          <input type="button" value="ADD TO CART" id="addCart" onclick="AddProduct()">
+          </div>
+       </main>
+<script src="index.js"></script>
+</body>
+</html>
